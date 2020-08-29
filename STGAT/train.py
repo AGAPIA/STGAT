@@ -33,7 +33,7 @@ parser.add_argument("--skip", default=1, type=int)
 
 parser.add_argument("--seed", type=int, default=72, help="Random seed.")
 parser.add_argument("--batch_size", default=64, type=int)
-parser.add_argument("--num_epochs", default=400, type=int)
+parser.add_argument("--num_epochs", default=10, type=int)
 
 parser.add_argument("--noise_dim", default=(16,), type=int_tuple)
 parser.add_argument("--noise_type", default="gaussian")
@@ -170,12 +170,12 @@ def main(args):
 
     training_step = 1
     for epoch in range(args.start_epoch, args.num_epochs + 1):
-        if epoch < 150:
+        if epoch < 8:
             training_step = 1
-        elif epoch < 250:
+        elif epoch < 9:
             training_step = 2
         else:
-            if epoch == 250:
+            if epoch == 10:
                 for param_group in optimizer.param_groups:
                     param_group["lr"] = 5e-3
             training_step = 3

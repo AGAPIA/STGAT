@@ -13,7 +13,7 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/STGAT/evaluate_model.py" />
-    <option name="PARAMETERS" value="--resume models/carla_len8_pred8_model.pth.tar --external 1 --external_test 0 --dataset_name Carla_full2" />
+    <option name="PARAMETERS" value="--model_path models/carla_len8_pred8_model.pth.tar --external 1 --external_test 0 --dataset_name Carla_full2" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />

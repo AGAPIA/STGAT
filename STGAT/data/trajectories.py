@@ -56,7 +56,7 @@ def read_file(_path, delim="\t"):
 		delim = " "
 
 	filename, file_extension = os.path.splitext(_path)
-	if file_extension == '.pkl':
+	if file_extension == '.pkl' or 'gitignore' in _path:
 		return False, None
 	with open(_path, "r") as f:
 		for line in f:

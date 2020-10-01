@@ -75,7 +75,7 @@ parser.add_argument("--dset_type", default="test", type=str)
 
 
 parser.add_argument(
-    "--resume",
+    "--model_path",
     default="./model_best.pth.tar",
     type=str,
     metavar="PATH",
@@ -345,6 +345,7 @@ def startExternalTest():
 
 if __name__ == "__main__":
     args = parser.parse_args()
+    args.resume = args.model_path
     args.model_path = args.resume
     config.initDevice(args.use_gpu)
 
@@ -354,6 +355,16 @@ if __name__ == "__main__":
 
     if True and args.external == 1:
         deloyModelForFlaskInference()
+
+        if "carla" in args.resume:
+            print("Running deployment for Carla...")
+            app.run(host="localhost", port=5200, debug=False)
+        elif "waymo" in args.resume:
+            print("Running deployment for Waymo...")
+            app.run(host="localhost", port=5201, debug=False)
+        else:
+            print("Running deployment for others...")
+            app.run(host="localhost", port=8200, debug=False)
         app.run()
     elif True and args.external_test == 1:
         startExternalTest()

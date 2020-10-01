@@ -1,3 +1,11 @@
+# The addons that i've made on top of this are the same as in https://github.com/AGAPIA/sgan 
+
+- To run the training:
+train.py --dataset_name Carla_full2 --pred_len 8 --batch_size 32
+- To run the evaluation as Flask:
+--resume models/carla_len8_pred8_model.pth.tar --external 1 --external_test 0 --dataset_name Carla_full2
+Note: use external 0 if you want just evaluation of dataset results, or external 0 and extern_test 1 to test locally an inference.
+
 # STGAT
 STGAT: Modeling Spatial-Temporal Interactions for Human Trajectory Prediction
 
